@@ -1,0 +1,99 @@
+/* ========== PROFILE PICTURE STYLES ========== */
+
+.profile-container {
+    position: relative;
+    display: flex;
+    justify-content: center;  /* Centers horizontally */
+    align-items: center;      /* Centers vertically */
+    margin-bottom: 2rem;
+    padding: 20px;
+}
+
+.profile-frame {
+    width: 280px;             /* Frame width */
+    height: 280px;            /* Frame height */
+    border-radius: 50%;
+    padding: 8px;
+    background: linear-gradient(135deg, #f4d03f, #f7dc6f, #f4d03f);
+    box-shadow: 
+        0 0 30px rgba(244, 208, 63, 0.6),
+        0 0 60px rgba(244, 208, 63, 0.4),
+        inset 0 0 20px rgba(255, 255, 255, 0.2);
+    position: relative;
+    animation: rotate 20s linear infinite, glow 3s ease-in-out infinite;
+    /* ADJUST POSITION HERE: */
+    margin: 0 auto;           /* Auto centers it */
+    transform: translateY(0); /* Move up: -20px, Move down: 20px */
+}
+
+/* Outer rotating ring */
+.swirl-decoration {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -10px;
+    left: -10px;
+    border-radius: 50%;
+    border: 3px dashed rgba(244, 208, 63, 0.5);
+    animation: rotate 15s linear infinite reverse;
+}
+
+/* Your profile image */
+.profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;        /* Covers the frame */
+    object-position: center;  /* Shows center of image */
+    border: 4px solid #1e3a5f;
+    display: block;
+    /* Optional: Add slight rotation to image itself */
+    /* transform: rotate(-5deg); */
+}
+
+/* Rotation animation */
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Glowing effect animation */
+@keyframes glow {
+    0%, 100% { 
+        box-shadow: 
+            0 0 30px rgba(244, 208, 63, 0.6), 
+            0 0 60px rgba(244, 208, 63, 0.4); 
+    }
+    50% { 
+        box-shadow: 
+            0 0 40px rgba(244, 208, 63, 0.8), 
+            0 0 80px rgba(244, 208, 63, 0.6); 
+    }
+}
+
+/* ========== QUICK ADJUSTMENT GUIDE ========== */
+/* 
+To move the picture:
+- margin-top: 30px;     (moves down)
+- margin-bottom: 30px;  (moves up)
+- margin-left: 50px;    (moves right)
+- margin-right: 50px;   (moves left)
+- transform: translateY(-20px);  (moves up 20px)
+- transform: translateX(30px);   (moves right 30px)
+
+To change rotation speed:
+- animation: rotate 10s linear infinite;  (faster - 10 seconds)
+- animation: rotate 30s linear infinite;  (slower - 30 seconds)
+- animation: none;                         (no rotation)
+
+To change size:
+- width: 250px; height: 250px;  (smaller)
+- width: 320px; height: 320px;  (larger)
+
+To adjust image position inside frame:
+- object-position: top;
+- object-position: bottom;
+- object-position: left;
+- object-position: right;
+- object-position: center top;
+*/
